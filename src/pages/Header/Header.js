@@ -5,10 +5,10 @@ import img from '../../assets/images/logo/sity-tours-logo.png'
 const Header = () => {
     const menuItem=<>
     <li className='fond-semibold'><Link to='/home'>Home</Link></li>
-    <li className='fond-semibold'><Link>About</Link></li>
     <li className='fond-semibold'><Link>Sirvices</Link></li>
+    <li className='fond-semibold'><Link>About</Link></li>
     <li className='fond-semibold'><Link>Blog</Link></li>
-    <li className='fond-semibold'><Link>Contact</Link></li>
+    <li className='fond-semibold'><Link to='/login'>Login</Link></li>
    </>
 
     return (
