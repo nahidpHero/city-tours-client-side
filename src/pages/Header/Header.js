@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img from '../../assets/images/sity-tours-logo.png'
+import img from '../../assets/images/logo/sity-tours-logo.png'
 
 const Header = () => {
     const menuItem=<>
@@ -35,10 +35,8 @@ const Header = () => {
     <a className="btn btn-outline btn-secondary">Appointment</a>
   </div>
 </div>
-           
-        </div>
-        
-        </div>
+ </div>
+</div>
     );
 };
 
