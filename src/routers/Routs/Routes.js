@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../layout/Main";
+import Blog from "../../pages/Blog/Blog";
 import Details from "../../pages/Details/Details";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
@@ -38,6 +39,10 @@ const router=createBrowserRouter([
                 element:<Details></Details>,
                 loader:({params})=>fetch(`http://localhost:5000/services/${params.id}`)
                 
+            },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
             }
         ]
     }

@@ -15,7 +15,6 @@ const ProductCard = ({product}) => {
         <img src={img} alt="" />
       </PhotoView>
     </PhotoProvider>
-  {/* <figure><img src= alt="Shoes" /></figure> */}
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
     <p>{details?.slice(0,100)}...</p>
