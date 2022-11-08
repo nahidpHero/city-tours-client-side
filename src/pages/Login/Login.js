@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import loginImg from '../../assets/images/login/login.jpg'
 import { Authcontext } from '../../provaider/AuthProvaider';
+import {FaGoogle} from 'react-icons/fa';
 
 
 
@@ -61,7 +62,7 @@ const Login = () => {
               </div>
             </form>
             <div  className="text-center w-full ">
-              <button onClick={handleGooleSignIn} className="btn btn-primary m-4 px-20">Sign In With google</button>
+              <button onClick={handleGooleSignIn} className="btn btn-primary m-4 px-20"><FaGoogle/> Sign In With google</button>
             </div>
             
            <div>
