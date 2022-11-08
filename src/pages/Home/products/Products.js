@@ -1,4 +1,5 @@
 import React, { useEffect, useState, } from 'react';
+import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard';
 
 const Products = () => {
@@ -24,7 +25,7 @@ const Products = () => {
             }
         </div>
         <div className='text-center my-8'>
-            <button className='btn btn-success px-8 font-bold' >See all</button>
+            <button className='btn btn-success px-8 font-bold' ><Link to='/services'>See all</Link> </button>
         </div>
        </div>
     );
