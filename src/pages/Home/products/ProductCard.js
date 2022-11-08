@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 const ProductCard = ({product}) => {
-    const {name,img,}=product;
+    const {_id,name,img,details,price}=product;
     
     return (
         <div>
@@ -9,9 +11,16 @@ const ProductCard = ({product}) => {
   <figure><img src={img} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">{name}</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div className="card-actions justify-end">
+    <p>{details?.slice(0,100)}...</p>
+    <div className="card-actions justify-between">
+      <div className='font-bold '>
+        Price:{price}$
+      </div>
+      <div>
+      <Link to={`/services/${_id}`}>
       <button className="btn btn-primary">details</button>
+      </Link>
+      </div>
     </div>
   </div>
 </div>
