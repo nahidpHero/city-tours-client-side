@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import loginImg from '../../assets/images/login/login.jpg'
+import { Authcontext } from '../../provaider/AuthProvaider';
+
+
+
 
 const Login = () => {
+  const {login,googleSignIn}=useContext(Authcontext)
     const handleSubmit=(event)=>{
+      event.preventDefault()
+      const form=event.target;
+      const email=form.email.value;
+      const password=form.password.value;
+      console.log(email,password)
+      login(email,password)
+      .then(result=>{
+        const user=result.user;
+        console.log(user);
+      })
+      .catch(error=>console.log(error))
 
+
+    }
+    const handleGooleSignIn=()=>{
+      googleSignIn()
+      .then(result=>{
+        const user=result.user
+        console.log(user)
+      })
+      .catch(error=>console.error(error))
     }
     return (
         <div>
@@ -13,7 +38,7 @@ const Login = () => {
           <div className="text-center lg:text-left">
           <img src={loginImg}></img>
           </div>
-          <div className="card  w-full shadow-2xl bg-base-100">
+          <div className="card  w-full  max-w-sm shadow-2xl bg-base-100">
             <form onSubmit={handleSubmit} className="card-body">
               <div className="form-control">
               <h1 className="text-5xl font-bold text-center">Login now!</h1>
@@ -35,8 +60,12 @@ const Login = () => {
               <input className="btn btn-primary" type="submit" value="Login" />
               </div>
             </form>
+            <div  className="text-center w-full ">
+              <button onClick={handleGooleSignIn} className="btn btn-primary m-4 px-20">Sign In With google</button>
+            </div>
+            
            <div>
-             <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+             <p className='text-center'>New to City Tours <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
            </div>
           </div>
         </div>

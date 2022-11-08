@@ -24,7 +24,7 @@ const Header = () => {
        {menuItem}
       </ul>
     </div>
-    <a className=" normal-case text-xl"><img src={img} alt="" srcset="" /></a>
+    <a className=" normal-case "><img src={img} alt="" srcset="" /></a>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal font-semibold p-0">
