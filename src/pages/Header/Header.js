@@ -1,14 +1,28 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import img from '../../assets/images/logo/sity-tours-logo.png'
+import { Authcontext } from '../../provaider/AuthProvaider';
 
 const Header = () => {
+  const {logOut}=useContext(Authcontext)
+
+   const handleSignout=()=>{
+    logOut()
+    .then(result=>{
+      //sign out successfully
+    })
+    .catch(error=>{
+      //some problem
+    })
+   }
+
     const menuItem=<>
     <li className='fond-semibold'><Link to='/home'>Home</Link></li>
     <li className='fond-semibold'><Link to='/services'>Sirvices</Link></li>
     <li className='fond-semibold'><Link>About</Link></li>
     <li className='fond-semibold'><Link to='/blog'>Blog</Link></li>
     <li className='fond-semibold'><Link to='/login'>Login</Link></li>
+    <button onClick={handleSignout} className=' btn-ghost'>LogOut</button>
    </>
 
     return (

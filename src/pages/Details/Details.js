@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { Authcontext } from '../../provaider/AuthProvaider';
 
 const Details = () => {
     const {img,name,details,price,location,ratingsCount,ratings}=useLoaderData()
+    const {user}=useContext(Authcontext)
+
+   const handleSumbitRevew=(event)=>{
+    event.preventDefault()
+    const textArea=event.target.textarea.value;
+    console.log(textArea)
+
+   } 
+
     return (
         <div>
            <div className="card  lg:card-side bg-base-100 shadow-xl">
@@ -23,7 +33,24 @@ const Details = () => {
     </div>
   </div>
 </div>
-        </div>
+<div>
+  <h1 className='text-3xl font-bold mb-5' >Please add your review</h1>
+  <form onSubmit={handleSumbitRevew} className="form-control">
+  <textarea name='textarea' className="textarea textarea-bordered h-24" placeholder="Add your comment please"></textarea>
+   {
+    user?.email?
+    <>
+    <button  className='btn w-24 btn-success'>POST</button>
+    </>
+    :
+    <>
+    <button disabled className='btn w-24 btn-success'>POST</button>
+    </>
+   }
+</form>
+
+</div>
+</div>
     );
 };
 
