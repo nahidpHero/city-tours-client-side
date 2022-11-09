@@ -1,6 +1,6 @@
 
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import signupImg from '../../assets/images/login/signup.jpg'
 import { Authcontext } from '../../provaider/AuthProvaider';
 
@@ -8,6 +8,8 @@ import { Authcontext } from '../../provaider/AuthProvaider';
 
 const SignUp = () => {
   const {createAccount}=useContext(Authcontext);
+  const navigate=useNavigate();
+  
     const handleSubmitSignup=(event)=>{
       event.preventDefault();
       const form=event.target;
@@ -18,6 +20,8 @@ const SignUp = () => {
       .then(result=>{
         const user=result.user;
         console.log(user)
+        form.reset()
+        navigate('/')
       })
       .catch(error=>console.error(error))
     }

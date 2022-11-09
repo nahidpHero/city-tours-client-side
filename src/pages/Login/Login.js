@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/images/login/login.jpg'
 import { Authcontext } from '../../provaider/AuthProvaider';
 import {FaGoogle} from 'react-icons/fa';
@@ -7,8 +7,16 @@ import {FaGoogle} from 'react-icons/fa';
 
 
 
+
+
 const Login = () => {
   const {login,googleSignIn}=useContext(Authcontext)
+  const location=useLocation();
+  const navigate=useNavigate()
+
+  const from=location.state?.from?.pathname || '/'
+
+
     const handleSubmit=(event)=>{
       event.preventDefault()
       const form=event.target;
@@ -19,6 +27,7 @@ const Login = () => {
       .then(result=>{
         const user=result.user;
         console.log(user);
+        navigate(from ,{replace:true})
       })
       .catch(error=>console.log(error))
 
@@ -29,6 +38,7 @@ const Login = () => {
       .then(result=>{
         const user=result.user
         console.log(user)
+        navigate('/')
       })
       .catch(error=>console.error(error))
     }
