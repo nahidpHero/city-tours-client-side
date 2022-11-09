@@ -4,7 +4,7 @@ import img from '../../assets/images/logo/sity-tours-logo.png'
 import { Authcontext } from '../../provaider/AuthProvaider';
 
 const Header = () => {
-  const {logOut}=useContext(Authcontext)
+  const {logOut,user}=useContext(Authcontext)
 
    const handleSignout=()=>{
     logOut()
@@ -21,8 +21,21 @@ const Header = () => {
     <li className='fond-semibold'><Link to='/services'>Sirvices</Link></li>
     <li className='fond-semibold'><Link>About</Link></li>
     <li className='fond-semibold'><Link to='/blog'>Blog</Link></li>
-    <li className='fond-semibold'><Link to='/login'>Login</Link></li>
-    <button onClick={handleSignout} className=' btn-ghost'>LogOut</button>
+    {
+      user?.email?
+      <>
+     <li className='fond-semibold'><Link to='/blog'>Add Survices</Link></li>
+       <li className='fond-semibold'><Link to='/review'>My reviews</Link></li>
+       <button onClick={handleSignout} className=' btn-ghost'>LogOut</button>  
+      </>
+      :
+      <>
+      <li className='fond-semibold'><Link to='/login'>Login</Link></li>
+        
+      </>
+    }
+   
+
    </>
 
     return (
