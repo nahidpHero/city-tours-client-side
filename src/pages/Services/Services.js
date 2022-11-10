@@ -5,7 +5,7 @@ const Services = () => {
   const[allProduct,setAllProduct]=useState([])
 
    useEffect(()=>{
-    fetch('http://localhost:5000/services')
+    fetch('https://city-tours-server-fvvxt9ngx-nahidphero.vercel.app/services')
     .then(res=>res.json())
     .then(data=>setAllProduct(data))
    },[])

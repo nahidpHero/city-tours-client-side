@@ -19,7 +19,7 @@ const Review = () => {
         console.log(id)
         const proceed=window.confirm("Are you sure,you want to delete a review ")
         if(proceed){
-            fetch(`http://localhost:5000/reviewes/${id}`,{
+            fetch(`https://city-tours-server-fvvxt9ngx-nahidphero.vercel.app/reviewes/${id}`,{
                 method:'DELETE'
 
             })

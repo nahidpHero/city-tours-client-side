@@ -21,7 +21,7 @@ const Details = () => {
       review:textArea
      }
 
-     fetch('http://localhost:5000/reviewes',{
+     fetch('https://city-tours-server-fvvxt9ngx-nahidphero.vercel.app/reviewes',{
   method:"POST",
   headers:{
     'content-type':'application/json'
