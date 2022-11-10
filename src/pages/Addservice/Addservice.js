@@ -1,7 +1,10 @@
 import React from 'react';
 import useTittle from '../../useTittle';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Addservice = () => {
+    const notify = () => toast("Added successfully!");
     useTittle('add product')
      const  handleSubmit=(event)=>{
         event.preventDefault()
@@ -15,7 +18,7 @@ const Addservice = () => {
         const services={name,price,location,photoURL,details}
         
         console.log(services)
-        fetch("https://city-tours-server-fvvxt9ngx-nahidphero.vercel.app/services",{
+        fetch('http://localhost:5000/services',{
             method:"POST",
             headers:{
               'content-type':'application/json'
@@ -25,6 +28,10 @@ const Addservice = () => {
            .then(res=>res.json())
            .then(data=>{
             console.log(data)
+            if(data.acknowledged){
+                notify()
+                
+              }
            })
            .catch(error=>console.error(error))
 
@@ -36,12 +43,13 @@ const Addservice = () => {
     
     return (
         <div>
+            <ToastContainer/>
              <form onSubmit={handleSubmit}>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-2 bottom-4 p-5'>
                 <input name='name' type="text" placeholder="Place Name" className="input input-bordered w-full " />
                 <input name='price' type="text" placeholder="Price" className="input input-bordered w-full " />
                 <input name='location' type="text" placeholder="location" className="input input-bordered w-full " />
-                <input name='photoURL' type="text" placeholder="Photo URL"className="input input-bordered w-full" />
+                <input name='photoURL' type="url" placeholder="Photo URL"className="input input-bordered w-full" />
                 <br />
                </div>
                <div>
