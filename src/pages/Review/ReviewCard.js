@@ -1,30 +1,49 @@
 import React from 'react';
 
-const ReviewCard = ({singleReview}) => {
-    const {email,img,userName,review,serviceName}=singleReview
+const ReviewCard = ({singleReview,handleDelete}) => {
+    const {_id,email,img,userName,review,serviceName}=singleReview
+
+   
     return (
-        <div>
-            <div className="card  grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 bg-base-100 border-2 shadow-xl">
-                <div>
-                   <img className='rounded' src={img} alt="" />
-                  
-                </div>
-                <div>
-                <h1 className='text-xl font-bold'>Name:{userName}</h1>
-                <h1>Email:{email}</h1>
-                </div>
-                <div>
-                    <h1 className='text-xl font-bold' >Place:{serviceName}</h1>
-                    <h1>Review:{review}</h1>
-
-
-                </div>
-             
-           </div>
-
-            
+        <div >
+ <div className="overflow-x-auto w-full">
+  <table className="table w-full">
+      <tr>
+        <th>
+          <label>
+            <button onClick={()=>handleDelete(_id)}>X</button>
+          </label>
+        </th>
+        <td>
+          <div className="flex items-center space-x-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
+                <img src={img} alt="Avatar Tailwind CSS Component" />
+              </div>
+            </div>
+            <div>
+              <div className="font-bold">{userName}</div>
+              <div className="text-sm opacity-50">{email}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div className='font-bold'>
+          {serviceName}  
+          </div>
+        </td>
+        <td>{review}</td>
+        <th>
+          <button className="btn btn-success btn-xs">Update</button>
+        </th>
+      </tr>
+    
+  </table>
+</div>
+           
         </div>
     );
 };
 
 export default ReviewCard;
+
