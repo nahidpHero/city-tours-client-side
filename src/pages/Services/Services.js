@@ -4,6 +4,7 @@ import ServiceCard from './ServiceCard';
 
 const Services = () => {
   const[allProduct,setAllProduct]=useState([])
+  
   useTittle('services')
 
    useEffect(()=>{

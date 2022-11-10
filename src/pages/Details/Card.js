@@ -1,17 +1,15 @@
 import React from 'react';
 
-const ReviewCard = ({singleReview,handleDelete,handleUpdate}) => {
-    const {_id,email,img,userName,review,serviceName,status}=singleReview
-
-   
+const Card = ({singleReview}) => {
+    const {_id,email,img,userName,review,serviceName}=singleReview
+    
     return (
-        <div >
- <div className="overflow-x-auto w-full">
+        <div>
+            <div className="overflow-x-auto w-full">
   <table className="table w-full">
       <tr>
         <th>
           <label>
-            <button onClick={()=>handleDelete(_id)}>X</button>
           </label>
         </th>
         <td>
@@ -34,16 +32,16 @@ const ReviewCard = ({singleReview,handleDelete,handleUpdate}) => {
         </td>
         <td>{review}</td>
         <th>
-          <button onClick={()=>handleUpdate(_id)} className="btn btn-success btn-xs">{status?status:'pending'}</button>
+          <button className="btn btn-success btn-xs">Update</button>
         </th>
       </tr>
     
   </table>
 </div>
-           
-        </div>
+</div>
+            
+       
     );
 };
 
-export default ReviewCard;
-
+export default Card;

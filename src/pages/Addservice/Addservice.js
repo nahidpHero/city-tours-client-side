@@ -17,8 +17,8 @@ const Addservice = () => {
         
         const services={name,price,location,photoURL,details}
         
-        console.log(services)
-        fetch('http://localhost:5000/services',{
+
+        fetch('https://city-tours-server-gl1bs84kz-nahidphero.vercel.app/services',{
             method:"POST",
             headers:{
               'content-type':'application/json'

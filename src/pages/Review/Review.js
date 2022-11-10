@@ -8,11 +8,34 @@ const Review = () => {
 
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviewes?email=${user?.email}`)
+        fetch(`https://city-tours-server-fvvxt9ngx-nahidphero.vercel.app/reviewes?email=${user?.email}`)
         .then(res=>res.json())
         .then(data=>setReviews(data))
 
     },[user?.email])
+
+    const handleUpdate=(id)=>{
+      fetch(`https://city-tours-server-fvvxt9ngx-nahidphero.vercel.app/reviewes/${id}`,{
+        method:'PATCH',
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify({status:'Approved'})
+
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data);
+        if(data.modifiedCount>0){
+          const remaining=reviews.filter(rev=>rev._id !==id)
+          const approving=reviews.find(rev=>rev._id ===id)
+          approving.status='Approved'
+          const newReviews=[approving, ...remaining ]
+          setReviews(newReviews);
+        }
+      })
+
+    }
 
 
     const handleDelete=(id)=>{
@@ -62,6 +85,7 @@ const Review = () => {
             key={singleReview._id}
             singleReview={singleReview}
             handleDelete={handleDelete}
+            handleUpdate={handleUpdate}
             ></ReviewCard>)
            }
            </div>
