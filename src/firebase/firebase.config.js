@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDWYF-7uZCHCvk-R-Pbtq73h9lcp0MLx8A",
-  authDomain: "city-tours-f961f.firebaseapp.com",
-  projectId: "city-tours-f961f",
-  storageBucket: "city-tours-f961f.appspot.com",
-  messagingSenderId: "732793732671",
-  appId: "1:732793732671:web:d6c4f6329865612e35428a"
+  apiKey:process.env.REACT_APP_apiKey,
+  authDomain:process.env.REACT_APP_authDomain,
+  projectId:process.env.REACT_APP_projectId,
+  storageBucket:process.env.REACT_APP_storageBucket,
+  messagingSenderId:process.env.REACT_APP_messagingSenderId,
+  appId:process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase
