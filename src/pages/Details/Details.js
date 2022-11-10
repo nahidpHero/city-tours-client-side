@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import {useLoaderData, useNavigate } from 'react-router-dom';
 import { Authcontext } from '../../provaider/AuthProvaider';
+import useTittle from '../../useTittle';
 
 const Details = () => {
     const {_id,img,name,details,price,location,ratingsCount,ratings}=useLoaderData()
     const {user}=useContext(Authcontext)
     const navigate=useNavigate();
+    useTittle('details')
 
    const handleSumbitRevew=(event)=>{
     event.preventDefault()
@@ -69,7 +71,7 @@ const Details = () => {
           <p>Ratings : {ratings}</p>
         </div>
        <div>
-       <button className="btn btn-primary">Listen</button>
+       <button className="btn btn-primary">Please confurm</button>
        </div>
     </div>
   </div>
@@ -78,16 +80,7 @@ const Details = () => {
   <h1 className='text-3xl font-bold mb-5' >Please add your review</h1>
   <form onSubmit={handleSumbitRevew} className="form-control">
   <textarea name='textarea' className="textarea textarea-bordered h-24" placeholder="Add your comment please"></textarea>
-   {/* {
-    user?.email?
-    <> */}
-    <button  className='btn w-24 btn-success'>POST</button>
-    {/* </>
-    :
-    <>
-    <button disabled className='btn w-24 btn-success'>POST</button>
-    </>
-   } */}
+
 </form>
 
 </div>

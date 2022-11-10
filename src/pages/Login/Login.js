@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginImg from '../../assets/images/login/login.jpg'
 import { Authcontext } from '../../provaider/AuthProvaider';
 import {FaGoogle} from 'react-icons/fa';
+import useTittle from '../../useTittle';
 
 
 
@@ -13,6 +14,7 @@ const Login = () => {
   const {login,googleSignIn}=useContext(Authcontext)
   const location=useLocation();
   const navigate=useNavigate()
+  useTittle("login")
 
   const from=location.state?.from?.pathname || '/'
 

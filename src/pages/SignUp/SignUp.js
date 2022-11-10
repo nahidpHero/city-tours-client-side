@@ -3,12 +3,14 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import signupImg from '../../assets/images/login/signup.jpg'
 import { Authcontext } from '../../provaider/AuthProvaider';
+import useTittle from '../../useTittle';
 
 
 
 const SignUp = () => {
   const {createAccount}=useContext(Authcontext);
   const navigate=useNavigate();
+  useTittle('sign up')
   
     const handleSubmitSignup=(event)=>{
       event.preventDefault();

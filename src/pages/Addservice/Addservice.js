@@ -1,6 +1,8 @@
 import React from 'react';
+import useTittle from '../../useTittle';
 
 const Addservice = () => {
+    useTittle('add product')
      const  handleSubmit=(event)=>{
         event.preventDefault()
         const form=event.target;
@@ -10,12 +12,28 @@ const Addservice = () => {
         const photoURL=form.photoURL.value
         const details=form.messege.value
         
-        const service={name,price,location,photoURL,details}
+        const services={name,price,location,photoURL,details}
         
-        console.log(service)
+        console.log(services)
+        fetch("https://city-tours-server-fvvxt9ngx-nahidphero.vercel.app/services",{
+            method:"POST",
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(services)
+           })
+           .then(res=>res.json())
+           .then(data=>{
+            console.log(data)
+           })
+           .catch(error=>console.error(error))
 
      }
 
+  
+              
+        
+    
     return (
         <div>
              <form onSubmit={handleSubmit}>
